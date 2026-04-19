@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&display=swap");
+
+@layer base {
+  :root {
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-arabic: "Cairo", "Inter", sans-serif;
+
+    /* Deep navy portfolio theme */
+    --background: 212 60% 8%;
+    --foreground: 210 40% 98%;
+    --card: 212 55% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 212 55% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 160 84% 55%;
+    --primary-foreground: 212 60% 8%;
+    --secondary: 212 45% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 212 40% 18%;
+    --muted-foreground: 210 20% 65%;
+    --accent: 160 84% 55%;
+    --accent-foreground: 212 60% 8%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 212 40% 20%;
+    --input: 212 40% 18%;
+    --ring: 160 84% 55%;
+
+    --brand-mint: 160 84% 55%;
+    --brand-yellow: 48 100% 68%;
+    --brand-navy: 212 60% 8%;
+
+    --chart-1: 160 84% 55%;
+    --chart-2: 48 100% 68%;
+    --chart-3: 212 60% 30%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 212 60% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 160 84% 55%;
+    --sidebar-primary-foreground: 212 60% 8%;
+    --sidebar-accent: 212 45% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 212 40% 20%;
+    --sidebar-ring: 160 84% 55%;
+  }
+
+  .dark {
+    --background: 212 60% 8%;
+    --foreground: 210 40% 98%;
+    --card: 212 55% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 212 55% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 160 84% 55%;
+    --primary-foreground: 212 60% 8%;
+    --secondary: 212 45% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 212 40% 18%;
+    --muted-foreground: 210 20% 65%;
+    --accent: 160 84% 55%;
+    --accent-foreground: 212 60% 8%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 212 40% 20%;
+    --input: 212 40% 18%;
+    --ring: 160 84% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+}
+
+@layer utilities {
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .dots-bg {
+    background-image: radial-gradient(
+      hsl(var(--border) / 0.4) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow-mint {
+    box-shadow: 0 0 80px -10px hsl(var(--brand-mint) / 0.35);
+  }
+}
