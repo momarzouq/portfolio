@@ -1,17 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)"],
-        arabic: ["var(--font-arabic)"],
+        arabic: ["var(--font-cairo)"],
+        cairo: ["var(--font-cairo)"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      borderColor: {
+        border: "hsl(var(--border))",
       },
       colors: {
         background: "hsl(var(--background))",

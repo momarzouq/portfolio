@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /api
+Disallow: /.well-known
+Disallow: /admin
+
+# Crawl delay (optional, adjust based on server capacity)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://momarzouq.com/sitemap.xml
+Sitemap: https://momarzouq.com/sitemap-en.xml
+Sitemap: https://momarzouq.com/sitemap-ar.xml

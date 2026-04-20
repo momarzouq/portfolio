@@ -1,41 +1,61 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+"use client";
+
+import { useState } from "react";
 import { Play, Youtube } from "lucide-react";
+import Link from "next/link";
 import SectionLabel from "./SectionLabel";
-
-const CATEGORIES = ["All", "Tutorials", "DSA", "Career", "Opinions"];
-
-const VIDEOS = [
-  {
-    title: "لماذا البرمجة في 2026",
-    category: "Opinions",
-    thumb:
-      "https://media.base44.com/images/public/69e55523a14d1d322b141bdb/70068fb09_generated_123e8f60.png",
-  },
-  {
-    title: "المقابلات التقنية — دليلك الكامل",
-    category: "Career",
-    thumb:
-      "https://media.base44.com/images/public/69e55523a14d1d322b141bdb/4ce6adc81_generated_6da9534a.png",
-  },
-  {
-    title: "تعلم البرمجة من الصفر",
-    category: "Tutorials",
-    thumb:
-      "https://media.base44.com/images/public/69e55523a14d1d322b141bdb/f16758b14_generated_d8fff99d.png",
-  },
-  {
-    title: "Data Structures & Algorithms",
-    category: "DSA",
-    thumb:
-      "https://media.base44.com/images/public/69e55523a14d1d322b141bdb/e0878fa88_generated_ea28cdf8.png",
-  },
-];
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Videos() {
-  const [active, setActive] = useState("All");
+  const t = useTranslations("videos");
+
+  const CATEGORY_NAMES = {
+    all: t("allCategories"),
+    tutorials: "Tutorials",
+    dsa: "DSA",
+    career: "Career",
+    opinions: "Opinions",
+  };
+
+  const CATEGORIES = [
+    { key: "all", label: CATEGORY_NAMES.all },
+    { key: "tutorials", label: CATEGORY_NAMES.tutorials },
+    { key: "dsa", label: CATEGORY_NAMES.dsa },
+    { key: "career", label: CATEGORY_NAMES.career },
+    { key: "opinions", label: CATEGORY_NAMES.opinions },
+  ];
+
+  const VIDEOS = [
+    {
+      title: "لماذا البرمجة في 2026",
+      category: "opinions",
+      thumb: "/momarzouq.jpg",
+      link: "https://www.youtube.com/@momarzouq",
+    },
+    {
+      title: "المقابلات التقنية — دليلك الكامل",
+      category: "career",
+      thumb: "/momarzouq.jpg",
+      link: "https://www.youtube.com/@momarzouq",
+    },
+    {
+      title: "تعلم البرمجة من الصفر",
+      category: "tutorials",
+      thumb: "/momarzouq.jpg",
+      link: "https://www.youtube.com/@momarzouq",
+    },
+    {
+      title: "Data Structures & Algorithms",
+      category: "dsa",
+      thumb: "/momarzouq.jpg",
+      link: "https://www.youtube.com/@momarzouq",
+    },
+  ];
+
+  const [active, setActive] = useState("all");
   const filtered =
-    active === "All" ? VIDEOS : VIDEOS.filter((v) => v.category === active);
+    active === "all" ? VIDEOS : VIDEOS.filter((v) => v.category === active);
 
   return (
     <section
@@ -44,18 +64,10 @@ export default function Videos() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="max-w-2xl mb-10">
-          <SectionLabel>YouTube</SectionLabel>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1]"
-          >
-            <span className="block text-foreground">Content for the</span>
-            <span className="block text-brand-yellow">
-              Arab tech community.
-            </span>
-          </motion.h2>
+          <SectionLabel>{t("label")}</SectionLabel>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1]">
+            <span className="block text-foreground">{t("title")}</span>
+          </h2>
           <p className="mt-6 text-muted-foreground max-w-lg">
             From DSA deep-dives to career advice and honest opinions — all in
             Arabic.
@@ -66,40 +78,38 @@ export default function Videos() {
         <div className="flex flex-wrap gap-2 mb-10">
           {CATEGORIES.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setActive(cat)}
+              key={cat.key}
+              onClick={() => setActive(cat.key)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                active === cat
+                active === cat.key
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                   : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/40"
               }`}
             >
-              {cat}
+              {cat.label}
             </button>
           ))}
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filtered.map((video, i) => (
-            <motion.a
+            <Link
               key={video.title}
-              href="#"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              href={video.link}
               className="group block bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:-translate-y-1 duration-300"
             >
               <div className="relative aspect-video overflow-hidden bg-secondary">
-                <img
+                <Image
+                  width={400}
+                  height={225}
                   src={video.thumb}
                   alt={video.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm shadow-xl group-hover:scale-110 transition-transform">
-                    <Play className="w-5 h-5 text-primary-foreground fill-current ml-0.5" />
+                  <div className="w-12 h-12 rounded-full bg-secondary/50 flex items-center justify-center backdrop-blur-sm shadow-xl group-hover:scale-110 transition-transform">
+                    <Play className="w-4 h-4 fill-current ml-0.5" />
                   </div>
                 </div>
               </div>
@@ -115,7 +125,7 @@ export default function Videos() {
                   YouTube
                 </div>
               </div>
-            </motion.a>
+            </Link>
           ))}
         </div>
       </div>

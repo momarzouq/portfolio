@@ -1,10 +1,13 @@
-@import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
     --font-sans: "Inter", system-ui, sans-serif;
-    --font-arabic: "Cairo", "Inter", sans-serif;
+    --font-arabic: "Cairo", sans-serif;
 
     /* Deep navy portfolio theme */
     --background: 212 60% 8%;
@@ -13,7 +16,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 212 55% 11%;
     --popover-foreground: 210 40% 98%;
-    --primary: 160 84% 55%;
+    --primary: 215 84% 55%;
     --primary-foreground: 212 60% 8%;
     --secondary: 212 45% 15%;
     --secondary-foreground: 210 40% 98%;
@@ -73,10 +76,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-
   html {
     scroll-behavior: smooth;
   }
@@ -114,5 +113,74 @@
 
   .glow-mint {
     box-shadow: 0 0 80px -10px hsl(var(--brand-mint) / 0.35);
+  }
+
+  .scroll-container {
+    display: flex;
+    gap: 1rem;
+    animation: scroll 40s linear infinite;
+    padding: 1rem 0;
+    will-change: transform;
+  }
+
+  .scroll-container:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 0.5rem));
+    }
+  }
+
+  .testimonial-item {
+    flex: 0 0 100%;
+    min-width: 360px;
+  }
+
+  @media (min-width: 640px) {
+    .testimonial-item {
+      flex: 0 0 calc(50% - 0.5rem);
+      min-width: 320px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonial-item {
+      flex: 0 0 calc(25% - 0.75rem);
+      min-width: 340px;
+    }
+  }
+
+  .font-cairo {
+    font-family: var(--font-cairo);
+  }
+
+  html[lang="ar"] {
+    font-family: var(--font-cairo);
+    direction: rtl;
+    text-align: right;
+  }
+
+  html[lang="ar"] button,
+  html[lang="ar"] a,
+  html[lang="ar"] p,
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6,
+  html[lang="ar"] span,
+  html[lang="ar"] div {
+    font-family: var(--font-cairo);
+  }
+
+  html[lang="en"] {
+    font-family: var(--font-sans);
+    direction: ltr;
   }
 }

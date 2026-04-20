@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-6">
