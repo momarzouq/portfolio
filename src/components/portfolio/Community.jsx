@@ -1,7 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { Star, Youtube } from "lucide-react";
 import SectionLabel from "./SectionLabel";
+import { getTranslations } from "next-intl/server";
 
 const TESTIMONIALS = [
   {
@@ -67,13 +66,7 @@ const TESTIMONIALS = [
 
 function TestimonialCard({ t, i }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}
-      className="bg-card/60 backdrop-blur border border-border rounded-2xl p-5 hover:border-primary/40 transition-colors h-full"
-    >
+    <div className="bg-card/60 backdrop-blur border border-border rounded-2xl p-5 hover:border-primary/40 transition-colors h-full">
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-xs">
@@ -106,11 +99,13 @@ function TestimonialCard({ t, i }) {
       >
         {t.body}
       </p>
-    </motion.div>
+    </div>
   );
 }
 
-export default function Community() {
+export default async function Community() {
+  const t = await getTranslations("community");
+
   return (
     <section
       id="community"
@@ -119,22 +114,21 @@ export default function Community() {
       <div className="absolute inset-0 dots-bg opacity-20 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div className="max-w-3xl mb-14">
-          <SectionLabel>Community</SectionLabel>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1]"
-          >
-            <span className="block text-foreground">Hear from Mohameds</span>
-            <span className="block text-primary">community.</span>
-          </motion.h2>
+          <SectionLabel>{t("label")}</SectionLabel>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1]">
+            <span className="block text-foreground">{t("title1")}</span>
+            <span className="block text-primary">{t("title2")}</span>
+          </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {TESTIMONIALS.map((t, i) => (
-            <TestimonialCard key={t.name + i} t={t} i={i} />
-          ))}
+        <div className="overflow-hidden">
+          <div className="scroll-container">
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+              <div key={i} className="testimonial-item">
+                <TestimonialCard t={t} i={i % TESTIMONIALS.length} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

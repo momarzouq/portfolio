@@ -1,19 +1,20 @@
-import React from "react";
-import { motion } from "framer-motion";
 import SectionLabel from "./SectionLabel";
+import { getTranslations } from "next-intl/server";
 
-const STATS = [
-  { value: "8+", label: "Years Engineering", color: "text-primary" },
-  { value: "10K+", label: "Developers Reached", color: "text-primary" },
-  {
-    value: "عربي",
-    label: "Content Language",
-    color: "text-brand-yellow font-arabic",
-  },
-  { value: "FAANG", label: "Level Experience", color: "text-foreground" },
-];
+export default async function About() {
+  const t = await getTranslations("about");
 
-export default function About() {
+  const STATS = [
+    { value: "8+", label: t("stats.years"), color: "text-primary" },
+    { value: "10K+", label: t("stats.reach"), color: "text-primary" },
+    {
+      value: "عربي",
+      label: t("stats.language"),
+      color: "text-brand-yellow font-cairo",
+    },
+    { value: "FAANG", label: t("stats.experience"), color: "text-foreground" },
+  ];
+
   return (
     <section
       id="about"
@@ -23,46 +24,23 @@ export default function About() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <SectionLabel>About</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1] mb-6"
-          >
-            <span className="block text-foreground">Building things.</span>
-            <span className="block text-brand-yellow">Giving back.</span>
-          </motion.h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1] mb-6">
+            <span className="block text-foreground">{t("title1")}</span>
+            <span className="block text-brand-yellow">{t("title2")}</span>
+          </h2>
 
           <div className="space-y-4 text-muted-foreground leading-relaxed max-w-lg">
-            <p>
-              Im
-              <span className="text-foreground font-semibold">
-                Mohamed Marzouq
-              </span>
-              (<span className="font-arabic">محمد مرزوق</span>) — a software
-              engineer with a deep love for clean code and craft. I build
-              products, mentor engineers and create Arabic tech content that
-              makes complex engineering accessible.
-            </p>
-            <p>
-              Through coaching, tutorials and honest conversations about the
-              tech industry, I help developers across the Arab world land jobs
-              at top companies and navigate their careers with confidence.
-            </p>
+            <p>{t("description1")}</p>
+            <p>{t("description2")}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           {STATS.map((stat, i) => (
-            <motion.div
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
               className="relative bg-card border border-border rounded-2xl p-6 sm:p-8 hover:border-primary/40 transition-colors group overflow-hidden"
             >
               <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -74,7 +52,7 @@ export default function About() {
               <div className="relative mt-3 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

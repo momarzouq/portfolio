@@ -1,32 +1,33 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { Code2, Layers, Sparkles, GitBranch } from "lucide-react";
 import SectionLabel from "./SectionLabel";
+import { getTranslations } from "next-intl/server";
 
-const SKILLS = [
-  {
-    icon: Code2,
-    title: "Full-Stack Engineering",
-    desc: "Building production-grade apps with React, Node.js, TypeScript, and modern cloud infrastructure.",
-  },
-  {
-    icon: Layers,
-    title: "System Design",
-    desc: "Designing scalable architectures, distributed systems, and clean APIs that grow with the product.",
-  },
-  {
-    icon: Sparkles,
-    title: "AI & Automation",
-    desc: "Shipping intelligent features — from LLM-powered workflows to practical developer tooling.",
-  },
-  {
-    icon: GitBranch,
-    title: "Mentorship",
-    desc: "Coaching engineers one-on-one on interviews, career growth, and navigating the tech industry.",
-  },
-];
+export default async function Work() {
+  const t = await getTranslations("work");
 
-export default function Work() {
+  const SKILLS = [
+    {
+      icon: Code2,
+      title: t("fullStack"),
+      desc: t("fullStackDesc"),
+    },
+    {
+      icon: Layers,
+      title: t("systemDesign"),
+      desc: t("systemDesignDesc"),
+    },
+    {
+      icon: Sparkles,
+      title: t("ai"),
+      desc: t("aiDesc"),
+    },
+    {
+      icon: GitBranch,
+      title: t("mentorship"),
+      desc: t("mentorshipDesc"),
+    },
+  ];
+
   return (
     <section
       id="work"
@@ -34,28 +35,19 @@ export default function Work() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="max-w-2xl mb-14">
-          <SectionLabel>What I Do</SectionLabel>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1]"
-          >
-            <span className="text-foreground">Craft meets</span>{" "}
-            <span className="text-primary">community.</span>
-          </motion.h2>
+          <SectionLabel>{t("label")}</SectionLabel>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1]">
+            <span className="text-foreground">{t("title1")}</span>{" "}
+            <span className="text-primary">{t("title2")}</span>
+          </h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {SKILLS.map((skill, i) => {
             const Icon = skill.icon;
             return (
-              <motion.div
+              <div
                 key={skill.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="group relative bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all hover:-translate-y-1 duration-300"
               >
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
@@ -67,7 +59,7 @@ export default function Work() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {skill.desc}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

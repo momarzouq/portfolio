@@ -1,14 +1,15 @@
-import React from "react";
 import Logo from "./Logo";
+import { getTranslations } from "next-intl/server";
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("footer");
+
   return (
     <footer className="border-t border-border/60 py-10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-0 md:mx-10 px-6 lg:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <Logo />
         <p className="text-xs text-muted-foreground text-center">
-          © {new Date().getFullYear()} Mohamed Marzouq · محمد مرزوق · All rights
-          reserved.
+          © {new Date().getFullYear()} @momarzouq · {t("copyright")}
         </p>
       </div>
 
