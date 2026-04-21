@@ -30,25 +30,25 @@ export default function Videos() {
     {
       title: "لماذا البرمجة في 2026",
       category: "opinions",
-      thumb: "/momarzouq.jpg",
+      thumb: "/momarzouq.jpeg",
       link: "https://www.youtube.com/@momarzouq",
     },
     {
       title: "المقابلات التقنية — دليلك الكامل",
       category: "career",
-      thumb: "/momarzouq.jpg",
+      thumb: "/momarzouq.jpeg",
       link: "https://www.youtube.com/@momarzouq",
     },
     {
       title: "تعلم البرمجة من الصفر",
       category: "tutorials",
-      thumb: "/momarzouq.jpg",
+      thumb: "/momarzouq.jpeg",
       link: "https://www.youtube.com/@momarzouq",
     },
     {
       title: "Data Structures & Algorithms",
       category: "dsa",
-      thumb: "/momarzouq.jpg",
+      thumb: "/momarzouq.jpeg",
       link: "https://www.youtube.com/@momarzouq",
     },
   ];
