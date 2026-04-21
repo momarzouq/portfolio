@@ -5,14 +5,26 @@ export default async function About() {
   const t = await getTranslations("about");
 
   const STATS = [
-    { value: "8+", label: t("stats.years"), color: "text-primary" },
-    { value: "10K+", label: t("stats.reach"), color: "text-primary" },
     {
-      value: "عربي",
-      label: t("stats.language"),
+      value: t("stats.build"),
+      label: t("stats.products"),
+      color: "text-primary",
+    },
+    {
+      value: t("stats.mentor"),
+      label: t("stats.developers"),
+      color: "text-primary",
+    },
+    {
+      value: t("stats.teach"),
+      label: t("stats.content"),
       color: "text-brand-yellow font-cairo",
     },
-    { value: "FAANG", label: t("stats.experience"), color: "text-foreground" },
+    {
+      value: t("stats.manage"),
+      label: t("stats.systems"),
+      color: "text-foreground",
+    },
   ];
 
   return (

@@ -25,38 +25,42 @@ const cairo = Cairo({
 });
 
 export const metadata = {
-  title: "Mohamed Marzouq | Full-Stack Engineer",
+  title: "Mohamed Marzouq |محمد مرزوق",
   description:
-    "Full-stack software engineer specializing in system design, AI automation, and mentoring Arab developers. Learn from interviews to shipping production-grade applications.",
+    "Helping developers improve their technical skills through content, mentoring, and courses",
 
   authors: [{ name: "Mohamed Marzouq", url: "https://momarzouq.vercel.app" }],
 
   creator: "Mohamed Marzouq",
   publisher: "Mohamed Marzouq",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  manifest: "/manifest.json",
 
   openGraph: {
-    title: "Mohamed Marzouq | Full-Stack Engineer",
+    title: "Mohamed Marzouq | Software Engineer",
     description:
-      "Full-stack engineer helping Arab developers level up through code, coaching, and content.",
-    type: "website",
+      "Software engineer helping Arab developers level up through code.",
     url: "https://momarzouq.vercel.app",
     siteName: "Mohamed Marzouq Portfolio",
     images: [
       {
-        url: "https://momarzouq.vercel.app/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mohamed Marzouq - Software Engineer Portfolio",
+        alt: "Mohamed Marzouq Portfolio",
       },
     ],
+    type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "Mohamed Marzouq | Full-Stack Engineer",
-    description: "Full-stack engineer helping Arab developers level up.",
-    creator: "@momarzouq",
-    images: ["https://momarzouq.vercel.app/og-image.jpg"],
+    title: "Mohamed Marzouq",
+    description: "Full-stack engineer",
+    images: ["/og-image.png"],
   },
 
   robots: {
@@ -83,9 +87,7 @@ export default async function RootLayout({ children }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         <link rel="canonical" href="https://momarzouq.vercel.app" />
-        <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1a1a2e" />

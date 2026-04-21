@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Logo({ className = "" }) {
   return (
     <Link
-      href="#top"
+      href="/"
       className={`inline-flex items-center gap-2 group ${className}`}
       aria-label="momarzouq home"
     >
