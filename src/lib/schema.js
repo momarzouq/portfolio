@@ -8,7 +8,7 @@ export const jsonLd = {
     "Full-stack software engineer, mentor, and content creator helping Arab developers level up.",
   email: "hello@momarzouq.com",
   telephone: null,
-  image: "https://momarzouq.com/momarzouq.jpg",
+  image: "https://momarzouq.com/momarzouq.jpeg",
   jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
@@ -39,7 +39,7 @@ export const professionalServiceSchema = {
     "Full-stack development, system design, and technical mentorship services",
   url: "https://momarzouq.com",
   telephone: null,
-  image: "https://momarzouq.com/momarzouq.jpg",
+  image: "https://momarzouq.com/momarzouq.jpeg",
   areaServed: [
     {
       "@type": "Place",

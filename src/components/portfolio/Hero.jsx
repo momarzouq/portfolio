@@ -74,7 +74,7 @@ export default async function Hero() {
             <Image
               width={400}
               height={500}
-              src="/momarzouq.jpg"
+              src="/momarzouq.jpeg"
               alt="Mohamed Marzouq — Software Engineer portrait (محمد مرزوق)"
               className="w-full h-full object-cover grayscale-[20%]"
             />
