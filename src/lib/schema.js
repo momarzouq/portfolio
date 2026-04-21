@@ -90,7 +90,7 @@ export const breadcrumbSchema = {
       "@type": "ListItem",
       position: 3,
       name: "Work",
-      item: "https://momarzouq.com/#work",
+      item: "https://momarzouq.com/#skills",
     },
     {
       "@type": "ListItem",

@@ -19,7 +19,7 @@ export default async function Hero() {
       <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-brand-yellow/5 blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
-        {/* Left: copy */}
+        {/* Left */}
         <div>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-semibold mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -64,7 +64,7 @@ export default async function Hero() {
           </div>
         </div>
 
-        {/* Right: portrait */}
+        {/* Right */}
         <div className="relative mx-auto w-full max-w-md">
           {/* Orbit rings */}
           <div className="absolute inset-0 -m-8 rounded-full border border-primary/10" />
@@ -72,10 +72,10 @@ export default async function Hero() {
 
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-card border border-border">
             <Image
-              width={400}
-              height={500}
+              width={200}
+              height={300}
               src="/momarzouq.jpeg"
-              alt="Mohamed Marzouq — Software Engineer portrait (محمد مرزوق)"
+              alt="Mohamed Marzouq — Software Engineer (محمد مرزوق)"
               className="w-full h-full object-cover grayscale-[20%]"
             />
             {/* Corner brackets */}

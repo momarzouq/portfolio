@@ -5,18 +5,21 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import Logo from "./Logo";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const t = useTranslations("nav");
   const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const NAV_LINKS = [
-    { label: t("about"), href: "#about" },
-    { label: t("work"), href: "#work" },
-    { label: t("videos"), href: "#videos" },
-    { label: t("community"), href: "#community" },
+    { label: t("about"), href: `/#about` },
+    { label: t("work"), href: `/#skills` },
+    { label: t("videos"), href: `/#videos` },
+    { label: t("community"), href: `/#community` },
   ];
 
   useEffect(() => {
@@ -26,10 +29,7 @@ export default function Navbar() {
   }, []);
 
   const switchLanguage = (newLocale) => {
-    if (typeof document !== "undefined") {
-      document.cookie = `locale=${newLocale}; path=/; max-age=31536000`;
-      window.location.reload();
-    }
+    router.replace(`/${newLocale}${pathname}`);
   };
 
   return (

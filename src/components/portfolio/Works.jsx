@@ -30,7 +30,7 @@ export default async function Work() {
 
   return (
     <section
-      id="work"
+      id="skills"
       className="relative py-24 sm:py-32 border-t border-border/60"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
