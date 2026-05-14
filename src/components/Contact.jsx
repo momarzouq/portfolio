@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowRight, Youtube, Linkedin, Instagram, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from "@/ui/button";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export default function Contact() {

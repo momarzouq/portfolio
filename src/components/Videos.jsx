@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Play, Youtube } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import SectionLabel from "./SectionLabel";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -12,44 +12,33 @@ export default function Videos() {
 
   const CATEGORY_NAMES = {
     all: t("allCategories"),
-    tutorials: "Tutorials",
-    dsa: "DSA",
-    career: "Career",
-    opinions: "Opinions",
+    tutorials: t("tutorials"),
   };
 
   const CATEGORIES = [
     { key: "all", label: CATEGORY_NAMES.all },
     { key: "tutorials", label: CATEGORY_NAMES.tutorials },
-    { key: "dsa", label: CATEGORY_NAMES.dsa },
-    { key: "career", label: CATEGORY_NAMES.career },
-    { key: "opinions", label: CATEGORY_NAMES.opinions },
   ];
 
   const VIDEOS = [
     {
-      title: "لماذا البرمجة في 2026",
-      category: "opinions",
-      thumb: "/momarzouq.jpeg",
-      link: "https://www.youtube.com/@momarzouq",
+      title: "this Keyword",
+      category: "all",
+      thumb: "/1-this.png",
+      link: "https://youtu.be/13aicTZV4F8?si=yAMTyvtH2zWw6INt",
     },
     {
-      title: "المقابلات التقنية — دليلك الكامل",
-      category: "career",
-      thumb: "/momarzouq.jpeg",
-      link: "https://www.youtube.com/@momarzouq",
+      title: "bind , apply , call",
+      category: "all",
+      thumb: "/2-call-apply-bind.png",
+      link: "https://youtu.be/HGG7oxUuK0o?si=vR9FK3wvANBu9DuL",
     },
+
     {
-      title: "تعلم البرمجة من الصفر",
+      title: "مفاهيم مهمة في جافاسكربت",
       category: "tutorials",
-      thumb: "/momarzouq.jpeg",
-      link: "https://www.youtube.com/@momarzouq",
-    },
-    {
-      title: "Data Structures & Algorithms",
-      category: "dsa",
-      thumb: "/momarzouq.jpeg",
-      link: "https://www.youtube.com/@momarzouq",
+      thumb: "/thumbnail.png",
+      link: "https://www.youtube.com/playlist?list=PL2XzC7_a3h5j52O4Z56l4zudHfIJiJRo2",
     },
   ];
 
