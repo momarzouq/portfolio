@@ -1,28 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
 
 export default function LanguageSwitcher() {
-  const [locale, setLocale] = useState("en");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const savedLocale = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("locale="))
-      ?.split("=")[1];
-    if (savedLocale) setLocale(savedLocale);
-    setMounted(true);
-  }, []);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const switchLanguage = (newLocale) => {
-    setLocale(newLocale);
-    document.cookie = `locale=${newLocale}; path=/; max-age=31536000`;
-    window.location.reload();
+    // Replace the locale segment in the pathname
+    const segments = pathname.split("/");
+    segments[1] = newLocale;
+    const newPathname = segments.join("/");
+    router.push(newPathname);
   };
-
-  if (!mounted) return null;
 
   return (
     <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border/40 bg-card/30 backdrop-blur">

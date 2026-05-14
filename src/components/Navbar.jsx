@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import Logo from "./Logo";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -14,7 +14,6 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-
   const NAV_LINKS = [
     { label: t("about"), href: `/#about` },
     { label: t("work"), href: `/#skills` },
@@ -29,7 +28,9 @@ export default function Navbar() {
   }, []);
 
   const switchLanguage = (newLocale) => {
-    router.replace(`/${newLocale}${pathname}`);
+    if (locale === newLocale) return;
+
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (

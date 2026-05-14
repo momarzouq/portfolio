@@ -1,13 +1,12 @@
-import React from "react";
 import { ArrowRight, Play } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from "@/ui/button";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-export default async function Hero() {
+export default async function Hero({ locale }) {
   const t = await getTranslations("hero");
-  const locale = await getLocale();
+  console.log("Hero locale:", locale);
   return (
     <section
       id="top"

@@ -27,7 +27,6 @@
       "developers": "Engineers",
       "content": "Tech Content",
       "systems": "Scalable Systems",
-
       "build": "Build",
       "mentor": "Mentor",
       "teach": "Teach",
@@ -51,7 +50,8 @@
     "label": "Videos",
     "title": "Content for tech community.",
     "description": "From DSA deep-dives to career advice and honest opinions — all in Arabic.",
-    "allCategories": "All"
+    "allCategories": "All",
+    "tutorials": "Tutorials"
   },
   "community": {
     "label": "Community",
