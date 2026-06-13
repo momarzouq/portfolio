@@ -51,7 +51,14 @@
     "title": "Content for tech community.",
     "description": "From DSA deep-dives to career advice and honest opinions — all in Arabic.",
     "allCategories": "All",
-    "tutorials": "Tutorials"
+    "advanced_js": "Advanced Javascript",
+    "problem_solving": "Problem Solving",
+    "items": {
+      "thisKeyword": "this Keyword",
+      "bindApplyCall": "bind, apply, call",
+      "importantConcepts": "Advanced JavaScript",
+      "problemSolving": "Problem Solving"
+    }
   },
   "community": {
     "label": "Community",

@@ -51,7 +51,14 @@
     "title": "محتوى لمجتمع التكنولوجيا.",
     "description": "من تعمقات بيانات ضخمة إلى نصائح مهنية وآراء صريحة — كل شيء باللغة العربية.",
     "allCategories": "الكل",
-    "tutorials": "الشروحات"
+    "problem_solving": "حل مسائل",
+    "advanced_js": "مفاهيم متقدمة في جافاسكربت",
+    "items": {
+      "thisKeyword": "كلمة this",
+      "bindApplyCall": "bind و apply و call",
+      "importantConcepts": "مفاهيم مهمة في جافاسكربت",
+      "problemSolving": "حل المشكلات"
+    }
   },
   "community": {
     "label": "المجتمع",

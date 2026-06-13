@@ -19,7 +19,6 @@ const Community = dynamic(() => import("@/components/Community"), {
 
 export default async function Home({ params }) {
   const { locale } = await params;
-  console.log("Home params:", params);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />

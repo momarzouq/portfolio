@@ -12,36 +12,42 @@ export default function Videos() {
 
   const CATEGORY_NAMES = {
     all: t("allCategories"),
-    tutorials: t("tutorials"),
+    advanced_js: t("advanced_js"),
+    problem_solving: t("problem_solving"),
   };
 
   const CATEGORIES = [
     { key: "all", label: CATEGORY_NAMES.all },
-    { key: "tutorials", label: CATEGORY_NAMES.tutorials },
+    { key: "advanced_js", label: CATEGORY_NAMES.advanced_js },
+    { key: "problem_solving", label: CATEGORY_NAMES.problem_solving },
   ];
 
   const VIDEOS = [
     {
-      title: "this Keyword",
+      title: t("items.thisKeyword"),
       category: "all",
       thumb: "/1-this.png",
       link: "https://youtu.be/13aicTZV4F8?si=yAMTyvtH2zWw6INt",
     },
     {
-      title: "bind , apply , call",
+      title: t("items.bindApplyCall"),
       category: "all",
       thumb: "/2-call-apply-bind.png",
       link: "https://youtu.be/HGG7oxUuK0o?si=vR9FK3wvANBu9DuL",
     },
-
     {
-      title: "مفاهيم مهمة في جافاسكربت",
-      category: "tutorials",
+      title: t("items.importantConcepts"),
+      category: "advanced_js",
       thumb: "/thumbnail.png",
       link: "https://www.youtube.com/playlist?list=PL2XzC7_a3h5j52O4Z56l4zudHfIJiJRo2",
     },
+    {
+      title: t("items.problemSolving"),
+      category: "problem_solving",
+      thumb: "/thumbnail-ps.png",
+      link: "https://youtube.com/playlist?list=PL2XzC7_a3h5jqxYd6waFNNNZVsnFtPdQv&si=Z4bLngpaElgVDiuP",
+    },
   ];
-
   const [active, setActive] = useState("all");
   const filtered =
     active === "all" ? VIDEOS : VIDEOS.filter((v) => v.category === active);
