@@ -18,7 +18,7 @@ export default function Navbar() {
     { label: t("about"), href: `/#about` },
     { label: t("work"), href: `/#skills` },
     { label: t("videos"), href: `/#videos` },
-    { label: t("community"), href: `/#community` },
+    // { label: t("community"), href: `/#community` },
   ];
 
   useEffect(() => {

@@ -12,7 +12,7 @@
     "title1": "Engineer.",
     "title2": "Teacher.",
     "title3": "Entrepreneur.",
-    "description": "I'm Mohamed Marzouq — a software engineer helping developers level up through code, coaching, and content.",
+    "description": "Mohamed Marzouq — Software Engineer, Mentor, and Motivational Content Creator",
     "cta": "Contact Me",
     "videos": "Watch Videos"
   },
@@ -20,7 +20,8 @@
     "label": "About",
     "title1": "Building things.",
     "title2": "Giving back.",
-    "description1": "I'm Mohamed Marzouq — a software engineer with a deep love for clean code and craft. I build products, mentor engineers and create Arabic tech content that makes complex engineering accessible.",
+
+    "description1": "Software Engineer with 3+ years of experience in designing, developing, and deploying full-stack web and mobile applications. Skilled in building end-to-end solutions, from system architecture and backend development to frontend implementation and deployment on cloud and hosting platforms. Passionate about education and knowledge sharing, I create programming content that helps aspiring developers improve their technical skills and gain practical experience in software development.",
     "description2": "Through coaching, tutorials and honest conversations about the tech industry, I help developers across the Arab world land jobs at top companies and navigate their careers with confidence.",
     "stats": {
       "products": "Real Products",
@@ -49,7 +50,7 @@
   "videos": {
     "label": "Videos",
     "title": "Content for tech community.",
-    "description": "From DSA deep-dives to career advice and honest opinions — all in Arabic.",
+    "description": "Courses may help you think like a software engineer and improve your technical skills— all in Arabic.",
     "allCategories": "All",
     "advanced_js": "Advanced Javascript",
     "problem_solving": "Problem Solving",
