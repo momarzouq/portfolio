@@ -12,10 +12,10 @@ const Videos = dynamic(() => import("@/components/Videos"), {
   ssr: true,
 });
 
-const Community = dynamic(() => import("@/components/Community"), {
-  loading: () => <div className="h-96" />,
-  ssr: true,
-});
+// const Community = dynamic(() => import("@/components/Community"), {
+//   loading: () => <div className="h-96" />,
+//   ssr: true,
+// });
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -27,7 +27,7 @@ export default async function Home({ params }) {
         <About />
         <Works />
         <Videos />
-        <Community />
+        {/* <Community /> */}
         <Contact />
       </main>
       <Footer />
